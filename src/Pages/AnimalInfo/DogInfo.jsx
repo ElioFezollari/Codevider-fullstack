@@ -1,10 +1,11 @@
-import { useParams } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import { getOneAnimal } from "../Services/APIConnection";
 import { useEffect, useState } from "react";
 import AnimalHero from "../Components/AnimallnfoComponents/AnimalHero";
 const DogInfo = () => {
   const [dog, setDog] = useState();
   const { name } = useParams();
+  
   useEffect(() => {
     getOneAnimal(name, "dogs").then((animal) => setDog(animal));
   }, []);
@@ -12,10 +13,11 @@ const DogInfo = () => {
     dog && (
       <>
         <AnimalHero animal={dog} name={name} />
+        <div className="animal-info-wrapper">
+        <div className="desc-wrapper">
         <div className="animal-info">
           <p>Name: {dog.breed}</p>
           <p>Origin:{dog.origin}</p>
-          <p>Description: {dog.description}</p>
           <p>Size: {dog.size}</p>
           <p>Temperament: {dog.temperament}</p>
           <p>Life span: {dog.averageLifeSpan || "Not metioned"}</p>
@@ -35,9 +37,15 @@ const DogInfo = () => {
                 : "No"
               : "Not mentioned"}
           </p>
-          <p>History: {dog.history || "Not mentioned"}</p>
           <p>Prey Drive: {dog.preyDrive || "Not mentioned"}</p>
           <p>Trainability: {dog.trainability || "Not mentioned"}</p>
+          <p>Colors: {dog.coatColors.length>0 ? dog.coatColors.map((color)=>color + ' ') : 'Not mentioned'}</p>
+          <p>{dog.coatColorHex.length>0 ? dog.coatColorHex.map((color,index)=><span key={index} className="hex-colors" style={{backgroundColor:color}}></span>) : ''}</p>
+        </div>
+        <p>Description: {dog.description}</p>
+        <p>History: {dog.history || "Not mentioned"}</p>
+        </div>
+        <Link to='/dogs' className="animals-button">Go back to dogs</Link>
         </div>
       </>
     )

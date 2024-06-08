@@ -661,6 +661,9 @@ footer{
 }
 
 /* --- Animal Info --- */
+#animal-info-hero{
+  height: auto;
+}
 .animal-loading-div{
   display: flex;
   justify-content: center;
@@ -675,15 +678,46 @@ footer{
 }
 .dog-hero-image-container{
   width: 100vw;
-  height: 100vh;
+  margin-top: 100px;
+  height: 50vh;
 }
 
-.animal-info{
-  min-height: 60vh;
+.animal-info-wrapper{
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  margin-bottom: 30px;
+}
+.animal-info-wrapper a{
+  text-decoration: none;
+  margin-left: 0;
+  transition: all 0.2s ease-in-out;
+}
+.animal-info-wrapper a:hover{
+ background-color: #fed952;
+}
+.desc-wrapper{
+  width: 80%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+    margin-bottom: 30px;
+}
+.hex-colors{
+  width: 20px;
+  height: 20px;
+  display: inline-block;
+  border-radius: 20px;
+}
+.animal-info{
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+  column-gap: 50px;
+  margin-bottom: 30px;
+  margin-top: 60px;
 }
 /*ERROR PAGE*/
 .not-found-div{
@@ -713,7 +747,6 @@ footer{
     margin-top: 40px;
     transition: all 0.2s ease-in-out;
 }
-
 .not-found-div a:hover{
   background-color: #ffe176;
 }
@@ -868,8 +901,12 @@ footer{
 @media only screen and (max-width: 601px) {
   .text-pop-up h4 {
     margin-top: 30px;
-  
   }
+  .animal-info{
+    grid-template-columns: 1fr;
+
+  }
+
   .animal-hero-overlay h1 {
     font-size: 150px;
 }

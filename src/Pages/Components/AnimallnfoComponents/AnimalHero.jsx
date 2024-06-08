@@ -1,7 +1,7 @@
 const AnimalHero = ({name,animal}) =>{
   
     return animal ? (
-      <div className="animal-hero">
+      <div className="animal-hero" id="animal-info-hero">
         <div className="dog-hero-image-container">
           <div className="blob-hero">
           <p>test</p>
