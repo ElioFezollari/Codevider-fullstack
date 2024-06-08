@@ -7,6 +7,7 @@ import Dogs from './Pages/Dogs'
 import Cats from './Pages/Cats'
 import Birds from './Pages/Birds'
 import NotFound from './Pages/NotFound'
+import DogPage from './Pages/Components/AnimalComponents/AnimalPages/DogPage'
 const router = createBrowserRouter([
   {
     path:'/',
@@ -17,18 +18,22 @@ const router = createBrowserRouter([
         path:'/',
         element:<Home/>
       },
-    {
-      path:'dogs',
-      element:<Dogs/>
-    },
-    {
-      path:'cats',
-      element:<Cats/>
-    },
-    {
-      path:'birds',
-      element:<Birds/>
-    }
+      {
+        path:'dogs',
+        element:<Dogs/>,
+      },
+      {
+        path:'dogs/:id',
+        element:<DogPage/>
+      },
+      {
+        path:'cats',
+        element:<Cats/>
+      },
+      {
+        path:'birds',
+        element:<Birds/>
+      }
     ]
   }
 ])

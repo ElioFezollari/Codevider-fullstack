@@ -45,7 +45,7 @@ const AnimalPopUp = ({ animal, closePopUp }) => {
                 <h4>Additional Details</h4>
               </div>
               <div className="additional-details">
-                {animal.place_of_found ? <BirdPopUp animal={animal}/>: animal.temperament?<DogPopUp animal={animal}/> : <CatPopUp animal={animal}/>}
+                {animal.locations ? <BirdPopUp animal={animal}/>: animal.temperament?<DogPopUp animal={animal}/> : <CatPopUp animal={animal}/>}
               </div>
             </div>
           </div>

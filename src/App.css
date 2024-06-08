@@ -648,8 +648,8 @@ footer{
 }
 .animal-image{
   border-top-left-radius: 20px;
-  width: 450px;
-  height: 450px;
+  width: 400px;
+  height: 400px;
   object-fit: cover;
 }
 .not-found-div{
