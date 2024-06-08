@@ -1,6 +1,6 @@
 import { motion } from "framer-motion";
 import {textAnimation} from '../../../Variants'
-const AnimalCard = ({ filteredAnimals,pictures,animal,cardClicked}) => {
+const AnimalCard = ({ filteredAnimals,animal,cardClicked}) => {
     return (
       <>
         {filteredAnimals.length > 0 ? (
@@ -17,15 +17,15 @@ const AnimalCard = ({ filteredAnimals,pictures,animal,cardClicked}) => {
               >
                 <div className="animal-card-image">
                   <img
-                    src={pictures[animal.name.toLowerCase().replace(/[\s-]/g, "")]}
+                    src={animal.imageUrl}
                     alt="picture of an animal"
                   />
                 </div>
                 <div className="animal-card-text">
-                  <h4>{animal.name}</h4>
+                  <h4>{animal.breed || animal.species}</h4>
                   {animal.origin && <p>Country of origin: {animal.origin}</p>}
-                  {animal.place_of_found && (
-                    <p>Can be found in: {animal.place_of_found}</p>
+                  {animal.locations && (
+                    <p>Can be found in: {animal.locations.map((location)=> location + ' ')}</p>
                   )}
                   <p className="read-more">Read More...</p>
                 </div>

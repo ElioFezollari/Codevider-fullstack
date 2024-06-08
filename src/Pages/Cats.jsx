@@ -1,7 +1,6 @@
 import AnimalHero from "./Components/AnimalComponents/AnimalHero"
 import catVideo from '../assets/cat-video.mp4'
 import AnimalGallery from "./Components/AnimalComponents/AnimalGallery"
-import catPictures from "./Services/AnimalPictures/CatPictures"
 import { useEffect } from "react"
 const Cats = () =>{
     useEffect(() => {
@@ -10,7 +9,7 @@ const Cats = () =>{
     return(
         <>
         <AnimalHero video={catVideo} animal={'cats'}/>
-        <AnimalGallery animal={'cats'} pictures={catPictures}/>
+        <AnimalGallery animal={'cats'} />
         </>
     )
 }

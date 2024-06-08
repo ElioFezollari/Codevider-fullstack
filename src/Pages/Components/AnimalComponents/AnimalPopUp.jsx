@@ -4,7 +4,7 @@ import { cardAnimation } from "../../../Variants";
 import BirdPopUp from "./AnimalPopUp/BirdPopUp";
 import DogPopUp from "./AnimalPopUp/DogPopUp";
 import CatPopUp from "./AnimalPopUp/CatPopUp";
-const AnimalPopUp = ({ animal, closePopUp, pictures }) => {
+const AnimalPopUp = ({ animal, closePopUp }) => {
   return (
     <div className="pop-up-wrapper">
     <AnimatePresence>
@@ -24,18 +24,18 @@ const AnimalPopUp = ({ animal, closePopUp, pictures }) => {
             <div>
               <img
                 className="animal-image"
-                src={pictures[animal.name.toLowerCase().replace(/[\s-]/g, "")]}
+                src={animal.imageUrl}
                 alt="picture of an animal"
               />
               <div className="heading-pop-up">
                 <h4>Main Details</h4>
-                <p>Name: {animal.name}</p>
+                <p>Name: {animal.breed}</p>
                 {animal.origin ? (
                   <p>Country of origin: {animal.origin}</p>
                 ) : (
                   <p>
                     Country in which this bird can be found:{" "}
-                    {animal.place_of_found}
+                    {animal.locations.map((location)=> location + ' ')}
                   </p>
                 )}
               </div>

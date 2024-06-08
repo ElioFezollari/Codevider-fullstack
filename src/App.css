@@ -356,9 +356,6 @@ h3{
   transform: translate(0, -8px);
 }
 
-.menu-toggle-bar.menu-toggle-bar--middle {
-}
-
 .menu-toggle-bar.menu-toggle-bar--bottom {
   transform: translate(0, 8px);
 }

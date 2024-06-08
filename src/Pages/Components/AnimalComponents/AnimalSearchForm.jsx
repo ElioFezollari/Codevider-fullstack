@@ -6,10 +6,13 @@ const AnimalSearchForm = ({setFilteredSearch,filteredSearch,setFilteredSelect,an
       if (animal.origin && !uniqueCategories.includes(animal.origin)) {
         uniqueCategories.push(animal.origin);
       }
-      else if (animal.place_of_found && !uniqueCategories.includes(animal.place_of_found)) {
-        uniqueCategories.push(animal.place_of_found);
-      }
-    });
+      else if (animal.locations) {
+        animal.locations.forEach(location => {
+          if (!uniqueCategories.includes(location)) {
+            uniqueCategories.push(location);
+          }
+        });
+      }});
 
     return(
         <div className="animal-gallery-wrapper">
