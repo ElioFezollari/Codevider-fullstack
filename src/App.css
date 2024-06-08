@@ -829,6 +829,9 @@ footer{
 .animal-search,.animal-search-wrapper {
   width: 300px;
 }
+.not-found-div img {
+  width: auto
+}
 }
 @media only screen and (max-width: 601px) {
   .animal-hero-overlay h1 {
