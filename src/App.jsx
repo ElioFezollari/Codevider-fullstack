@@ -3,11 +3,13 @@ import './App.css'
 import { createBrowserRouter,RouterProvider } from 'react-router-dom'
 import DefaultLayout from './DefaultLayout/DefaultLayout'
 import Home from './Pages/Home'
-import Dogs from './Pages/Dogs'
-import Cats from './Pages/Cats'
-import Birds from './Pages/Birds'
+import Dogs from './Pages/Animal/Dogs'
+import Cats from './Pages/Animal/Cats'
+import Birds from './Pages/Animal/Birds'
 import NotFound from './Pages/NotFound'
-import DogPage from './Pages/Components/AnimalComponents/AnimalPages/DogPage'
+import DogInfo from './Pages/AnimalInfo/DogInfo'
+import CatInfo from './Pages/AnimalInfo/CatInfo'
+import BirdInfo from './Pages/AnimalInfo/BirdInfo'
 const router = createBrowserRouter([
   {
     path:'/',
@@ -23,16 +25,24 @@ const router = createBrowserRouter([
         element:<Dogs/>,
       },
       {
-        path:'dogs/:id',
-        element:<DogPage/>
+        path:'dogs/:name',
+        element:<DogInfo/>
       },
       {
         path:'cats',
         element:<Cats/>
       },
       {
+        path:'cats/:name',
+        element:<CatInfo/>
+      },
+      {
         path:'birds',
         element:<Birds/>
+      },
+      {
+        path:'birds/:name',
+        element:<BirdInfo/>
       }
     ]
   }

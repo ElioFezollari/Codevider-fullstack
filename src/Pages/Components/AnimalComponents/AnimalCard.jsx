@@ -25,7 +25,7 @@ const AnimalCard = ({ filteredAnimals,animal,cardClicked}) => {
                   <h4>{animal.breed || animal.species}</h4>
                   {animal.origin && <p>Country of origin: {animal.origin}</p>}
                   {animal.locations && (
-                    <p>Can be found in: {animal.locations.map((location)=> location + ' ')}</p>
+                    <p>Can be found in: {animal.locations.map((location)=> location + '')}</p>
                   )}
                   <p className="read-more">Read More...</p>
                 </div>

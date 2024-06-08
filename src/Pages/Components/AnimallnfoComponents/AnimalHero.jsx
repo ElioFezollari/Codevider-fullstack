@@ -1,0 +1,18 @@
+const AnimalHero = ({name,animal}) =>{
+  
+    return animal ? (
+      <div className="animal-hero">
+        <div className="dog-hero-image-container">
+          <div className="blob-hero">
+          <p>test</p>
+          </div>
+          <img className="dog-hero-image" src={animal.imageUrl} alt="Image of a dog" draggable="false" />
+        </div>
+      </div>
+    ) : (
+      <div className="animal-loading-div">
+        <p>Loading {name}...</p>
+      </div>
+    );
+  };
+export default AnimalHero

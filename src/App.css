@@ -425,7 +425,8 @@ footer{
   display: flex;
   flex-direction: column;
 }
-.animal-hero video{
+
+.animal-hero video,.dog-hero-image{
   width: 100%;
   height: 100%;
   object-fit: cover;
@@ -590,8 +591,14 @@ footer{
 .heading-pop-up{
   padding: 20px;
 }
-.text-pop-up p{
+.text-pop-up p {
   margin-top: 20px;
+}
+.text-pop-up p:last-of-type{
+  margin-bottom: 70px;
+}
+.text-pop-up a{
+  color: #FFCE1F;
 }
 .pop-up-overlay{
   width: 100vw;
@@ -652,6 +659,33 @@ footer{
   height: 400px;
   object-fit: cover;
 }
+
+/* --- Animal Info --- */
+.animal-loading-div{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #171717;
+  color: #E8E9EB;
+  height: 100vh;
+}
+.animal-loading-div p{
+  margin-top: 100px;
+  font-size: 30px;
+}
+.dog-hero-image-container{
+  width: 100vw;
+  height: 100vh;
+}
+
+.animal-info{
+  min-height: 60vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+/*ERROR PAGE*/
 .not-found-div{
   display: flex;
   height: 100vh;
@@ -696,6 +730,7 @@ footer{
   }
   .animal-pop-up{
     width: 90%;
+    height: 70%;
   }
   .text-pop-up h4{
     font-size: 20px;
@@ -831,6 +866,10 @@ footer{
 }
 }
 @media only screen and (max-width: 601px) {
+  .text-pop-up h4 {
+    margin-top: 30px;
+  
+  }
   .animal-hero-overlay h1 {
     font-size: 150px;
 }
