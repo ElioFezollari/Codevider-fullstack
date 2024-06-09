@@ -37,7 +37,7 @@ const BirdAdminForm = ({
       description,
       imageUrl,
       locations,
-      wingspanInCm,
+      wingspanInCm: parseFloat(wingspanInCm),
       habitat,
       diet,
       migration,
