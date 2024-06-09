@@ -1,7 +1,7 @@
 import { useState } from "react";
-import { editAnimal } from "../../../Services/APIConnection";
+import { addAnimal, editAnimal } from "../../../Services/APIConnection";
 
-const CatAdminForm = ({ id,setIsEditing,setMessage,setError,size,levels}) => {
+const CatAdminForm = ({ id,setIsEditing,setMessage,setError,size,levels,method}) => {
 
 
   const [breed, setBreed] = useState();
@@ -40,10 +40,29 @@ const CatAdminForm = ({ id,setIsEditing,setMessage,setError,size,levels}) => {
       description,
       history,
     };
-    editAnimal(id, "cats", data)
+    if(method === 'post'){
+      addAnimal('cats',data).then((res) => {
+        if (res.statusCode == 400) {
+          const errorMessage = res.message.join("\n");
+          const errorElements = errorMessage.split("\n").map((error, index) => (
+            <div key={index}>{error}</div>
+          ));
+          setError(errorElements);
+
+          setTimeout(() => {
+            setError(null);
+          }, 10000);
+        } else {
+          setMessage(res.message);
+          setTimeout(() => {
+            setMessage(null);
+          }, 2000);
+        }
+      });
+    }
+    else{editAnimal(id, "cats", data)
       .then((res) => {
         setIsEditing(false)
-        console.log(res)
         if(res.statusCode==404){
             setError(res.message);
             setTimeout(() => {
@@ -55,7 +74,7 @@ const CatAdminForm = ({ id,setIsEditing,setMessage,setError,size,levels}) => {
         setTimeout(() => {
           setMessage(null);
         }, 2000);
-      }})
+      }})}
   };
   const handleColorChange = (e) => {
     const inputColors = e.target.value.split(",");

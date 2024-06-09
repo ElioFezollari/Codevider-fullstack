@@ -838,6 +838,11 @@ footer{
 .send-edit{
   width: 150px !important;
   background-color: #71ce77 !important;
+  padding: 10px;
+  border-radius: 10px;
+  border: none;
+  width: 80px;
+  cursor: pointer;
 }
 .send-edit:hover{
   background-color: #83d088 !important;
@@ -873,7 +878,23 @@ footer{
 .not-found-div a:hover{
   background-color: #ffe176;
 }
-
+.creation-form{
+  background-color: #171717;
+  margin-top: 40px;
+  padding: 20px;
+  border-radius: 20px;
+  color: white;
+}
+.creation-form h2{
+  font-size: 40px;
+  margin-bottom: 20px;
+  text-align: center;
+  text-decoration: underline;
+}
+.message-error-div{
+  width: 70%;
+  text-align: center;
+}
 /* --- UTILITIES --- */
 .header-gap{
   padding-top: 100px;

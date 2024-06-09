@@ -2,15 +2,20 @@ import { useState } from "react";
 import AdminForm from "./AdminForm";
 import { deleteAnimal } from "../../Services/APIConnection";
 
-const AdminTableRow = ({ animal, setMessage, setError, selectedAnimal,setSelectedAnimal }) => {
+const AdminTableRow = ({
+  animal,
+  setMessage,
+  setError,
+  selectedAnimal,
+  setSelectedAnimal,
+}) => {
   const [isEditing, setIsEditing] = useState(false);
   const [isDeleting, setIsDeleting] = useState(false);
-
 
   const confirmDelete = () => {
     deleteAnimal(animal.id, selectedAnimal).then((res) => {
       setIsDeleting(false);
-      setSelectedAnimal(selectedAnimal)
+      setSelectedAnimal(selectedAnimal);
       if (res.statusCode === 404) {
         setError(res.message);
         setTimeout(() => {
@@ -51,6 +56,7 @@ const AdminTableRow = ({ animal, setMessage, setError, selectedAnimal,setSelecte
                 setIsEditing={setIsEditing}
                 setMessage={setMessage}
                 setError={setError}
+                method='patch'
               />
             </div>
           </td>
@@ -60,7 +66,11 @@ const AdminTableRow = ({ animal, setMessage, setError, selectedAnimal,setSelecte
         <tr>
           <td colSpan={3}>
             Are you sure you want to delete {animal.breed || animal.species}?{" "}
-            <button className="delete-button" onClick={confirmDelete} style={{ width: "auto" }}>
+            <button
+              className="delete-button"
+              onClick={confirmDelete}
+              style={{ width: "auto" }}
+            >
               Confirm Deletion
             </button>
           </td>

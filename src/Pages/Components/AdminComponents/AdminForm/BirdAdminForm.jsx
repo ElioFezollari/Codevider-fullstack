@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { editAnimal } from "../../../Services/APIConnection";
+import { addAnimal, editAnimal } from "../../../Services/APIConnection";
 
 const BirdAdminForm = ({
   id,
@@ -7,24 +7,25 @@ const BirdAdminForm = ({
   setMessage,
   setError,
   temperament,
+  method,
 }) => {
-  const [species, setSpecies] = useState();
-  const [commonName, setCommonName] = useState();
-  const [family, setFamily] = useState();
-  const [order, setOrder] = useState();
-  const [genus, setGenus] = useState();
-  const [imageUrl, setImageUrl] = useState();
+  const [species, setSpecies] = useState(undefined);
+  const [commonName, setCommonName] = useState(undefined);
+  const [family, setFamily] = useState(undefined);
+  const [order, setOrder] = useState(undefined);
+  const [genus, setGenus] = useState(undefined);
+  const [imageUrl, setImageUrl] = useState(undefined);
   const [locations, setLocations] = useState([]);
-  const [wingspanInCm, setWingspanInCm] = useState();
-  const [habitat, setHabitat] = useState();
-  const [diet, setDiet] = useState();
-  const [migration, setMigration] = useState();
-  const [predators, setPredators] = useState();
+  const [wingspanInCm, setWingspanInCm] = useState(undefined);
+  const [habitat, setHabitat] = useState(undefined);
+  const [diet, setDiet] = useState(undefined);
+  const [migration, setMigration] = useState(undefined);
+  const [predators, setPredators] = useState(undefined);
   const [colors, setColors] = useState([]);
   const [colorHex, setColorHex] = useState([]);
-  const [description, setDescription] = useState();
-  const [temp, setTemperament] = useState();
-  const [history, setHistory] = useState();
+  const [description, setDescription] = useState(undefined);
+  const [temp, setTemperament] = useState('Friendly');
+  const [history, setHistory] = useState(undefined);
   const handleSubmit = async (e) => {
     e.preventDefault();
     const data = {
@@ -36,30 +37,52 @@ const BirdAdminForm = ({
       description,
       imageUrl,
       locations,
-      colors,
-      colorHex,
       wingspanInCm,
       habitat,
       diet,
       migration,
-      temperament:temp,
+      temperament: temp,
       predators,
       history,
+      colors,
+      colorHex
     };
-    editAnimal(id, "birds", data).then((res) => {
-      setIsEditing(false);
-      if (res.statusCode == 404) {
-        setError(res.message);
-        setTimeout(() => {
-          setError(null);
-        }, 2000);
-      } else {
-        setMessage(res.message);
-        setTimeout(() => {
-          setMessage(null);
-        }, 2000);
-      }
-    });
+
+    if (method == "post") {
+      addAnimal('birds',data).then((res) => {
+        if (res.statusCode == 400) {
+          const errorMessage = res.message.join("\n");
+          const errorElements = errorMessage.split("\n").map((error, index) => (
+            <div key={index}>{error}</div>
+          ));
+          setError(errorElements);
+
+          setTimeout(() => {
+            setError(null);
+          }, 10000);
+        } else {
+          setMessage(res.message);
+          setTimeout(() => {
+            setMessage(null);
+          }, 2000);
+        }
+      });
+    } else {
+      editAnimal(id, "birds", data).then((res) => {
+        setIsEditing(false);
+        if (res.statusCode == 404) {
+          setError(res.message);
+          setTimeout(() => {
+            setError(null);
+          }, 2000);
+        } else {
+          setMessage(res.message);
+          setTimeout(() => {
+            setMessage(null);
+          }, 2000);
+        }
+      });
+    }
   };
   const handleColorChange = (e) => {
     const inputColors = e.target.value.split(",");
@@ -71,10 +94,10 @@ const BirdAdminForm = ({
     setColorHex(inputColorHex);
   };
 
-  const handleLocationChange = (e) =>{
-    const inputColorChange = e.target.value.split(',');
-    setLocations(inputColorChange)
-  }
+  const handleLocationChange = (e) => {
+    const inputColorChange = e.target.value.split(",");
+    setLocations(inputColorChange);
+  };
 
   return (
     <form className="admin-form-cr">
@@ -217,8 +240,12 @@ const BirdAdminForm = ({
           value={temp}
           onChange={(e) => setTemperament(e.target.value)}
         >
-          {temperament.map((temperament,index) => {
-            return <option key={index} value={temperament}>{temperament}</option>;
+          {temperament.map((temperament, index) => {
+            return (
+              <option key={index} value={temperament}>
+                {temperament}
+              </option>
+            );
           })}
         </select>
       </label>

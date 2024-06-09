@@ -1,14 +1,14 @@
 import { useState } from "react";
-import { editAnimal } from "../../../Services/APIConnection";
+import { addAnimal, editAnimal } from "../../../Services/APIConnection";
 
-const DogAdminForm = ({ id,setIsEditing,setMessage,setError,size,temperament,levels}) => {
+const DogAdminForm = ({ id,setIsEditing,setMessage,setError,size,temperament,levels,method}) => {
 
       const difficulty = ["Easy", "Medium", "Hard"];
 
   const [breed, setBreed] = useState();
   const [origin, setOrigin] = useState();
   const [imageUrl, setImageUrl] = useState();
-  const [temp, setTemperament] = useState();
+  const [temp, setTemperament] = useState('Friendly');
   const [aSize, setASize] = useState();
   const [lifespan, setLifespan] = useState();
   const [weight, setWeight] = useState();
@@ -47,7 +47,27 @@ const DogAdminForm = ({ id,setIsEditing,setMessage,setError,size,temperament,lev
       description,
       history,
     };
-    editAnimal(id, "dogs", data)
+    if(method=='post'){
+      addAnimal('dogs',data).then((res) => {
+        if (res.statusCode == 400) {
+          const errorMessage = res.message.join("\n");
+          const errorElements = errorMessage.split("\n").map((error, index) => (
+            <div key={index}>{error}</div>
+          ));
+          setError(errorElements);
+
+          setTimeout(() => {
+            setError(null);
+          }, 10000);
+        } else {
+          setMessage(res.message);
+          setTimeout(() => {
+            setMessage(null);
+          }, 2000);
+        }
+      });
+    }
+    else {editAnimal(id, "dogs", data)
       .then((res) => {
         setIsEditing(false)
         if(res.statusCode==404){
@@ -61,7 +81,7 @@ const DogAdminForm = ({ id,setIsEditing,setMessage,setError,size,temperament,lev
         setTimeout(() => {
           setMessage(null);
         }, 2000);
-      }})
+      }})}
 
   };
   const handleColorChange = (e) => {
