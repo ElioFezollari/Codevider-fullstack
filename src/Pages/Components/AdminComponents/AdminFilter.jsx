@@ -5,6 +5,7 @@ const AdminFilter = ({filteredSearch,setFilteredSearch,selectedAnimal,setSelecte
         <input
           type="text"
           onChange={(e) => setFilteredSearch(e.target.value)}
+          placeholder={selectedAnimal + ' name'}
           value={filteredSearch}
         />
         <label htmlFor="animal-selector">

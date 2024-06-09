@@ -318,19 +318,6 @@ h3{
   padding: 10px;
 }
 
-/* --- UTILITIES --- */
-.header-gap{
-  padding-top: 100px;
-  width:  100%;
-}
-.responsive-div,#about-us .responsive-div{
-  width: 500px;
-  height: 500px;
-}
-.responsive-paragraph{
-  font-size: 16px;
-}
-
 /* --- MOBILE MENU ---*/
 .container {
   position: relative;
@@ -738,13 +725,15 @@ footer{
 }
 .admin-page{
   width: 100vw;
-  height: 100vh;
+  min-height: 100vh;
   display: flex;
   flex-direction: column;
   align-items: center;
+  margin-bottom: 40px;
 }
-.admin-filter{
-  margin-top: 200px;
+.admin-page h3{
+  margin-top: 140px;
+  margin-bottom: 20px;
 }
 .admin-page table{
   margin-top: 100px;
@@ -775,15 +764,64 @@ footer{
   padding: 10px;
   border-radius: 10px;
   border: none;
-  width: 60px;
+  width: 80px;
   cursor: pointer;
 }
 .admin-page table button:nth-child(2){
   background-color: #ee5129;
   margin-right: 10px;
 }
+.admin-page table button:nth-child(2):hover{
+  background-color: #f06845;
+  margin-right: 10px;
+}
 .admin-page table button:nth-child(1){
   background-color: #46B7D9;
+}
+.admin-page table button:nth-child(1):hover{
+  background-color: #62c4e2;
+}
+.admin-page input{
+  padding: 10px;
+  border-radius: 10px;
+  margin-right: 20px;
+  border: 1px solid black;
+  width: 200px;
+}
+
+.admin-page select{
+  padding: 10px;
+  border-radius: 10px;
+  margin-right: 40px;
+  border: 1px solid black;
+}
+.admin-filter button{
+  padding: 10px;
+  border-radius: 10px;
+  border: none;
+  background-color: #56AF5C;
+  cursor: pointer;
+  min-width: 100px;
+  align-self: flex-end;
+}
+.admin-form-cr{
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  row-gap: 20px;
+}
+.colors-edit{
+  grid-column: 1/4;
+}
+.colors-edit input{
+  width: 60%;
+}
+.text-area-label{
+  grid-column: 1/4;
+}
+.text-area-label textarea{
+  resize: none;
+  height: 80px;
+  width: 100%;
 }
 /*ERROR PAGE*/
 .not-found-div{
@@ -816,6 +854,22 @@ footer{
 .not-found-div a:hover{
   background-color: #ffe176;
 }
+
+/* --- UTILITIES --- */
+.header-gap{
+  padding-top: 100px;
+  width:  100%;
+}
+.responsive-div,#about-us .responsive-div{
+  width: 500px;
+  height: 500px;
+}
+.responsive-paragraph{
+  font-size: 16px;
+}
+
+
+
 /* MEDIA QUERY */
 @media only screen and (max-width: 1400px) {
   .text-pop-up h4{
