@@ -1,7 +1,7 @@
 import { useState } from "react";
 import AdminForm from "./AdminForm";
 
-const AdminTableRow = ({ animal }) => {
+const AdminTableRow = ({ animal,setMessage,setError,selectedAnimal }) => {
   const [isEditing, setIsEditing] = useState(false);
 
   return (
@@ -17,7 +17,7 @@ const AdminTableRow = ({ animal }) => {
         <tr>
           <td colSpan="3">
             <div>
-                <AdminForm/>
+                <AdminForm id={animal.id} selectedAnimal={selectedAnimal} setIsEditing={setIsEditing} setMessage={setMessage} setError={setError}/>
             </div>
           </td>
         </tr>

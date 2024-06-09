@@ -1,7 +1,7 @@
 
 import AdminTableRow from "./AdminTableRow"
 
-const AdminTable = ({selectedAnimal,filteredAnimals}) =>{
+const AdminTable = ({selectedAnimal,filteredAnimals,setMessage,setError}) =>{
     return(
         <table>
             <tbody>
@@ -12,7 +12,7 @@ const AdminTable = ({selectedAnimal,filteredAnimals}) =>{
             </tr>
                 {filteredAnimals.map((animal,index)=>{
                     return(
-                        <AdminTableRow key={index} animal={animal}/>
+                        <AdminTableRow setMessage={setMessage} selectedAnimal={selectedAnimal} setError={setError} key={index} animal={animal}/>
                     )
                 })}
                 </tbody>

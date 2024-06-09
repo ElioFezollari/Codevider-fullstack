@@ -9,4 +9,16 @@ const getOneAnimal = async (id,animal) =>{
     const returnedAnimal = await response.json()
     return returnedAnimal 
 }
-export {getAll,getOneAnimal}
+const editAnimal = async (id, animal, data) => {
+    const response = await fetch(`http://localhost:3000/${animal}/${id}`, {
+        
+        method: 'PATCH',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(data)
+    });
+    const postedAnimal = await response.json();
+    return postedAnimal;
+};
+export {getAll,getOneAnimal,editAnimal}

@@ -767,6 +767,18 @@ footer{
   width: 80px;
   cursor: pointer;
 }
+.admin-page h5{
+  grid-column: 1/4;
+  font-size: 26px;
+  color: green;
+  margin-top: 20px;
+}
+.admin-page h4{
+  grid-column: 1/4;
+  font-size: 26px;
+  color: red;
+  margin-top: 20px;
+}
 .admin-page table button:nth-child(2){
   background-color: #ee5129;
   margin-right: 10px;
@@ -822,6 +834,10 @@ footer{
   resize: none;
   height: 80px;
   width: 100%;
+}
+.send-edit{
+  width: 150px !important;
+  background-color: #56AF5C !important;
 }
 /*ERROR PAGE*/
 .not-found-div{

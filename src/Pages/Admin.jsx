@@ -9,7 +9,8 @@ const Admin = () => {
   const [fetchedAnimal, setFetchedAnimal] = useState();
   const [filteredSearch, setFilteredSearch] = useState("");
   const [isCreating, setIsCreating] = useState(false);
-
+  const [message, setMessage] = useState();
+  const [error, setError] = useState();
   useEffect(() => {
     getAll(selectedAnimal).then((animal) => setFetchedAnimal(animal));
   }, [selectedAnimal]);
@@ -34,9 +35,10 @@ const Admin = () => {
           setIsCreating={setIsCreating}
           isCreating={isCreating}
         />
-
+              {message && <h5>{message}</h5>}
+              {error && <h4>{error}</h4>}
         {fetchedAnimal ? isCreating==false && (
-          <AdminTable selectedAnimal={selectedAnimal} filteredAnimals={filteredAnimals}/>
+          <AdminTable setMessage={setMessage} setError={setError} selectedAnimal={selectedAnimal} filteredAnimals={filteredAnimals}/>
         ): <p>Loading...</p>}
       </div>
     </div>
