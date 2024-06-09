@@ -7,7 +7,6 @@ const AdminTableRow = ({
   setMessage,
   setError,
   selectedAnimal,
-  setSelectedAnimal,
 }) => {
   const [isEditing, setIsEditing] = useState(false);
   const [isDeleting, setIsDeleting] = useState(false);
@@ -15,7 +14,6 @@ const AdminTableRow = ({
   const confirmDelete = () => {
     deleteAnimal(animal.id, selectedAnimal).then((res) => {
       setIsDeleting(false);
-      setSelectedAnimal(selectedAnimal);
       if (res.statusCode === 404) {
         setError(res.message);
         setTimeout(() => {

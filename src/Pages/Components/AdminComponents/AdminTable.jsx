@@ -12,7 +12,7 @@ const AdminTable = ({selectedAnimal,filteredAnimals,setMessage,setError}) =>{
             </tr>
                 {filteredAnimals.map((animal,index)=>{
                     return(
-                        <AdminTableRow setMessage={setMessage} selectedAnimal={selectedAnimal} setError={setError} key={index} animal={animal}/>
+                        <AdminTableRow setMessage={setMessage} setError={setError} key={index} animal={animal}/>
                     )
                 })}
                 </tbody>
