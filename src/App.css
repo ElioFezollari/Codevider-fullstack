@@ -779,19 +779,19 @@ footer{
   color: red;
   margin-top: 20px;
 }
-.admin-page table button:nth-child(2){
-  background-color: #ee5129;
-  margin-right: 10px;
-}
-.admin-page table button:nth-child(2):hover{
-  background-color: #f06845;
-  margin-right: 10px;
-}
+
 .admin-page table button:nth-child(1){
   background-color: #46B7D9;
 }
 .admin-page table button:nth-child(1):hover{
   background-color: #62c4e2;
+}
+.admin-page table .delete-button{
+  background-color: #ee5129 !important;
+  margin-right: 10px;
+}
+.admin-page table .delete-button:hover{
+  background-color: #f06845 !important;
 }
 .admin-page input{
   padding: 10px;
@@ -811,7 +811,7 @@ footer{
   padding: 10px;
   border-radius: 10px;
   border: none;
-  background-color: #56AF5C;
+  background-color: #71ce77;
   cursor: pointer;
   min-width: 100px;
   align-self: flex-end;
@@ -837,7 +837,10 @@ footer{
 }
 .send-edit{
   width: 150px !important;
-  background-color: #56AF5C !important;
+  background-color: #71ce77 !important;
+}
+.send-edit:hover{
+  background-color: #83d088 !important;
 }
 /*ERROR PAGE*/
 .not-found-div{

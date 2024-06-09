@@ -38,7 +38,7 @@ const Admin = () => {
               {message && <h5>{message}</h5>}
               {error && <h4>{error}</h4>}
         {fetchedAnimal ? isCreating==false && (
-          <AdminTable setMessage={setMessage} setError={setError} selectedAnimal={selectedAnimal} filteredAnimals={filteredAnimals}/>
+          <AdminTable setMessage={setMessage} setError={setError} setSelectedAnimal={setSelectedAnimal} selectedAnimal={selectedAnimal} filteredAnimals={filteredAnimals}/>
         ): <p>Loading...</p>}
       </div>
     </div>

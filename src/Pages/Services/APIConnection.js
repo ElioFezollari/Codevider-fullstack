@@ -11,7 +11,6 @@ const getOneAnimal = async (id,animal) =>{
 }
 const editAnimal = async (id, animal, data) => {
     const response = await fetch(`http://localhost:3000/${animal}/${id}`, {
-        
         method: 'PATCH',
         headers: {
             'Content-Type': 'application/json'
@@ -21,4 +20,11 @@ const editAnimal = async (id, animal, data) => {
     const postedAnimal = await response.json();
     return postedAnimal;
 };
-export {getAll,getOneAnimal,editAnimal}
+const deleteAnimal = async (id, animal) => {
+        const response = await fetch(`http://localhost:3000/${animal}/${id}`, {
+            method: 'DELETE'
+        });
+        const message = await response.json()
+        return message
+    };
+export {getAll,getOneAnimal,editAnimal,deleteAnimal}
