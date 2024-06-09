@@ -73,7 +73,7 @@ const Hero = () => {
               key={index}
               variants={cardAnimation}
               initial="hidden"
-              animate={animalHovered === animal.breed ? "visible" : "hidden"}
+              animate={animalHovered === animal.name ? "visible" : "hidden"}
               src={animal.src}
               alt={animal.alt}
             />
