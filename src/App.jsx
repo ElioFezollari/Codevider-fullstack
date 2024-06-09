@@ -10,6 +10,7 @@ import NotFound from './Pages/NotFound'
 import DogInfo from './Pages/AnimalInfo/DogInfo'
 import CatInfo from './Pages/AnimalInfo/CatInfo'
 import BirdInfo from './Pages/AnimalInfo/BirdInfo'
+import Admin from './Pages/Admin'
 const router = createBrowserRouter([
   {
     path:'/',
@@ -43,6 +44,10 @@ const router = createBrowserRouter([
       {
         path:'birds/:name',
         element:<BirdInfo/>
+      },
+      {
+        path:"admin",
+        element:<Admin/>
       }
     ]
   }

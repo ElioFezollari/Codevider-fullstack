@@ -26,6 +26,10 @@ const HamburgerMenu = () => {
       href: "birds",
       content: "Birds",
     },
+    {
+      href:"admin",
+      content:"Admin Panel"
+    }
   ];
   return (
     <>
