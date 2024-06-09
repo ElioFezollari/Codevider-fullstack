@@ -3,9 +3,6 @@ const AnimalHero = ({name,animal}) =>{
     return animal ? (
       <div className="animal-hero" id="animal-info-hero">
         <div className="dog-hero-image-container">
-          <div className="blob-hero">
-          <p>test</p>
-          </div>
           <img className="dog-hero-image" src={animal.imageUrl} alt="Image of a dog" draggable="false" />
         </div>
       </div>

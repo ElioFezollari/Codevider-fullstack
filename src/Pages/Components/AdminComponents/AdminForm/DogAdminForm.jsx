@@ -1,18 +1,8 @@
 import { useState } from "react";
 import { editAnimal } from "../../../Services/APIConnection";
 
-const DogAdminForm = ({ id,setIsEditing,setMessage,setError,size,levels}) => {
+const DogAdminForm = ({ id,setIsEditing,setMessage,setError,size,temperament,levels}) => {
 
-    const temperament = [
-        "Friendly",
-        "Energetic",
-        "Playful",
-        "Protective",
-        "Obedient",
-        "Independent",
-        "Affectionate",
-        "Stubborn",
-      ];
       const difficulty = ["Easy", "Medium", "Hard"];
 
   const [breed, setBreed] = useState();
