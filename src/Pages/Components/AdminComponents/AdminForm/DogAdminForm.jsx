@@ -39,7 +39,7 @@ const DogAdminForm = ({ id,setIsEditing,setMessage,setError,size,temperament,lev
       socializationNeeds: socialization,
       healthIssues: health,
       intelligenceLevel: intelligence,
-      childFriendly,
+      childFriendly: childFriendly?true : false,
       preyDrive,
       trainability,
       coatColors: colors,
@@ -274,8 +274,8 @@ const DogAdminForm = ({ id,setIsEditing,setMessage,setError,size,temperament,lev
           onChange={(e) => setChildFriendly(e.target.value)}
         >
           <option value="">-</option>
-          <option value={true}>Yes</option>
-          <option value={false}>No</option>
+          <option value={1}>Yes</option>
+          <option value={0}>No</option>
         </select>
       </label>
       <label htmlFor="preyDrive">
