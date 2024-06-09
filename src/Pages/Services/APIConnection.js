@@ -21,7 +21,7 @@ const editAnimal = async (id, animal, data) => {
     return postedAnimal;
 };
 const addAnimal = async (animal, data) => {
-
+    
     const response = await fetch(`http://localhost:3000/${animal}`, {
         method: 'POST',
         headers: {
