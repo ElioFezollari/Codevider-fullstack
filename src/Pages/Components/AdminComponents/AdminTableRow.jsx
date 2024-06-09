@@ -34,7 +34,7 @@ const AdminTableRow = ({
       <tr>
         <td>{animal.breed || animal.species}</td>
         <td>{animal.origin || animal.family}</td>
-        <td>
+        <td className="button-td">
           <button onClick={() => setIsEditing(!isEditing)}>
             {isEditing ? "Cancel" : "Edit"}
           </button>{" "}
